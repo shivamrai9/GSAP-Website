@@ -5,6 +5,7 @@ import { TiLocationArrow } from 'react-icons/ti';
 import { useGSAP } from '@gsap/react';
 import gsap from 'gsap';
 import { ScrollTrigger } from 'gsap/all';
+import VideoPreview from './VideoPreview';
 
 
 gsap.registerPlugin(ScrollTrigger)
@@ -64,7 +65,7 @@ const Hero = () => {
 
     useGSAP(() => {
         gsap.set("#video-frame", {
-            clipPath: "polygon(14% 0, 72% 0, 88% 90%, 0 95%)",
+            clipPath: "polygon(14% 0, 72% 0, 88% 70%, 0 55%)",
             borderRadius: "0% 0% 40% 10%",
         });
         gsap.from("#video-frame", {
@@ -102,6 +103,7 @@ const Hero = () => {
             >
                 <div>
                     <div className="mask-clip-path absolute-center absolute z-50 size-64 cursor-pointer overflow-hidden rounded-lg">
+                        <VideoPreview>
                         <div
                             onClick={handleMiniVdClick}
                             className="origin-center scale-50 opacity-0 transition-all duration-500 ease-in hover:scale-100 hover:opacity-100"
@@ -116,6 +118,7 @@ const Hero = () => {
                                 onLoadedData={handleVideoLoad}
                             />
                         </div>
+                        </VideoPreview>
                     </div>
 
                     <video
